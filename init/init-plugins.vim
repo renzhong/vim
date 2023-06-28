@@ -341,9 +341,9 @@ if index(g:bundle_group, 'filetypes') >= 0
     let g:cpp_posix_standard = 1
     
     let g:python_highlight_builtins = 1
-	let g:python_highlight_builtin_objs = 1
-	let g:python_highlight_builtin_types = 1
-	let g:python_highlight_builtin_funcs = 1
+    let g:python_highlight_builtin_objs = 1
+    let g:python_highlight_builtin_types = 1
+    let g:python_highlight_builtin_funcs = 1
 endif
 
 
