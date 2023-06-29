@@ -60,3 +60,6 @@ set diffopt+=internal,algorithm:histogram
 " autocmd! bufwritepost .vimrc source ~/.vimrc
 
 set cursorline
+
+let g:vim_json_conceal=0
+let g:markdown_syntax_conceal=0
