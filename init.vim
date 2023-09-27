@@ -63,3 +63,16 @@ set cursorline
 
 let g:vim_json_conceal=0
 let g:markdown_syntax_conceal=0
+
+" 去除行尾空格
+function RemoveTrailingWhitespace()
+  if &ft != "diff"
+    let b:curcol = col(".")
+    let b:curline = line(".")
+    silent! %s/\s\+$//
+    silent! %s/\(\s*\n\)\+\%$//
+    call cursor(b:curline, b:curcol)
+  endif
+endfunction
+
+autocmd BufWritePre * call RemoveTrailingWhitespace()

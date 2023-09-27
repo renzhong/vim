@@ -1,6 +1,6 @@
 "======================================================================
 "
-" init-plugins.vim - 
+" init-plugins.vim -
 "
 " Created by skywind on 2018/05/31
 " Last Modified: 2018/06/10 23:11
@@ -38,7 +38,7 @@ call plug#begin(get(g:, 'bundle_home', '~/.vim/bundles'))
 
 
 "----------------------------------------------------------------------
-" 默认插件 
+" 默认插件
 "----------------------------------------------------------------------
 
 " 全文快速移动，<leader><leader>f{char} 即可触发
@@ -129,7 +129,7 @@ if index(g:bundle_group, 'basic') >= 0
     Plug 'skywind3000/vim-preview'
 
     " Git 支持
-    " :G 
+    " :G
     " :G add
     " :G commit
     Plug 'tpope/vim-fugitive'
@@ -162,6 +162,10 @@ if index(g:bundle_group, 'basic') >= 0
     let g:signify_vcs_cmds = {
             \ 'git': 'git diff --no-color --diff-algorithm=histogram --no-ext-diff -U0 -- %f',
             \}
+
+    autocmd FileType qf nnoremap <silent><buffer> p :PreviewQuickfix<cr>
+    autocmd FileType qf nnoremap <silent><buffer> P :PreviewClose<cr>
+
 endif
 
 
@@ -188,12 +192,12 @@ if index(g:bundle_group, 'enhanced') >= 0
     Plug 'dyng/ctrlsf.vim'
 
     " 配对括号和引号自动补全
-    Plug 'Raimondi/delimitMate'
+    " Plug 'Raimondi/delimitMate'
 
     " 提供 gist 接口
     " 往 github 上传代码片段
     " Plug 'lambdalisue/vim-gista', { 'on': 'Gista' }
-    
+
     " ALT_+/- 用于按分隔符扩大缩小 v 选区
     map <m-=> <Plug>(expand_region_expand)
     map <m--> <Plug>(expand_region_shrink)
@@ -212,8 +216,8 @@ if index(g:bundle_group, 'enhanced') >= 0
 
     " 关闭括号补全
     " let delimitMate_offByDefault = 1
-    let delimitMate_expand_space = 1
-    let delimitMate_expand_cr = 1
+    " let delimitMate_expand_space = 1
+    " let delimitMate_expand_cr = 1
 endif
 
 
@@ -249,7 +253,7 @@ if index(g:bundle_group, 'tags') >= 0
     endif
 
     " 默认禁用自动生成
-    let g:gutentags_modules = [] 
+    let g:gutentags_modules = []
 
     " 如果有 ctags 可执行就允许动态生成 ctags 文件
     if executable('ctags')
@@ -259,11 +263,14 @@ if index(g:bundle_group, 'tags') >= 0
     " 如果有 gtags 可执行就允许动态生成 gtags 数据库
     if executable('gtags') && executable('gtags-cscope')
         let g:gutentags_modules += ['gtags_cscope']
+        let $GTAGSLABEL = 'native-pygments'
+        " TODO mac 和 linux 可能路径不同
+        let $GTAGSCONF = '/home/linuxbrew/.linuxbrew/etc/gtags.conf'
     endif
- 
+
     " 设置 ctags 的参数
     " TODO ctags 和 gtags_cscope 参数可能有区别
-    let g:gutentags_ctags_extra_args = ['--fields=+anfiKSzl', '--extra=+q', '--c++-kinds=+pxz', '--c-kinds=+pxz', '--output-format=e-ctags']
+    let g:gutentags_ctags_extra_args = ['--fields=+anfiKSzl', '--extras=+q', '--c++-kinds=+pxz', '--c-kinds=+pxz', '--output-format=e-ctags']
 
     " 使用 universal-ctags 的话需要下面这行，请反注释
     let g:gutentags_ctags_extra_args += ['--output-format=e-ctags']
@@ -330,7 +337,7 @@ if index(g:bundle_group, 'filetypes') >= 0
     " rust 语法增强
     Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 
-    " vim org-mode 
+    " vim org-mode
     Plug 'jceb/vim-orgmode', { 'for': 'org' }
 
     " Plug 'pboettch/vim-cmake-syntax', { 'for': ['cmake'] }
@@ -339,7 +346,7 @@ if index(g:bundle_group, 'filetypes') >= 0
     let g:cpp_class_decl_highlight = 1
     let g:cpp_concepts_highlight = 1
     let g:cpp_posix_standard = 1
-    
+
     let g:python_highlight_builtins = 1
     let g:python_highlight_builtin_objs = 1
     let g:python_highlight_builtin_types = 1
@@ -447,13 +454,13 @@ if index(g:bundle_group, 'ale') >= 0
     let g:ale_linters_explicit = 1
     " 编辑不同文件类型需要的语法检查器
     let g:ale_linters = {
-                \ 'c': ['gcc', 'cppcheck'], 
-                \ 'cpp': ['gcc', 'cppcheck'], 
-                \ 'python': ['flake8', 'pylint'], 
-                \ 'lua': ['luac'], 
+                \ 'c': ['gcc', 'cppcheck'],
+                \ 'cpp': ['gcc', 'cppcheck'],
+                \ 'python': ['flake8', 'pylint'],
+                \ 'lua': ['luac'],
                 \ 'go': ['go build', 'gofmt'],
                 \ 'java': ['javac'],
-                \ 'javascript': ['eslint'], 
+                \ 'javascript': ['eslint'],
                 \ }
 
 
@@ -645,16 +652,16 @@ if index(g:bundle_group, 'YCM') >= 0
 
 
     " Ycm 白名单（非名单内文件不启用 YCM），避免打开个 1MB 的 txt 分析半天
-    let g:ycm_filetype_whitelist = { 
+    let g:ycm_filetype_whitelist = {
                 \ "c":1,
-                \ "cpp":1, 
+                \ "cpp":1,
                 \ "objc":1,
                 \ "objcpp":1,
                 \ "python":1,
                 \ "java":1,
                 \ "javascript":1,
                 \ "coffee":1,
-                \ "vim":1, 
+                \ "vim":1,
                 \ "go":1,
                 \ "cs":1,
                 \ "lua":1,
@@ -706,4 +713,3 @@ endif
 " 结束插件安装
 "----------------------------------------------------------------------
 call plug#end()
-
