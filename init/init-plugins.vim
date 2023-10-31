@@ -16,7 +16,7 @@
 if !exists('g:bundle_group')
     let g:bundle_group = ['basic', 'tags', 'enhanced', 'filetypes', 'textobj', 'YCM']
     let g:bundle_group += ['tags', 'airline', 'nerdtree', 'ale', 'echodoc']
-    let g:bundle_group += ['leaderf']
+    let g:bundle_group += ['leaderf', 'keysound']
 endif
 
 
@@ -706,6 +706,17 @@ if index(g:bundle_group, 'YCM') >= 0
                 \ "zimbu":1,
                 \ "ps1":1,
                 \ }
+endif
+
+"----------------------------------------------------------------------
+" keysound 插件
+"----------------------------------------------------------------------
+if index(g:bundle_group, 'YCM') >= 0
+    Plug 'skywind3000/vim-keysound'
+
+    let g:keysound_enable = 1
+    let g:keysound_py_version = 3
+    let g:keysound_theme = 'typewriter'
 endif
 
 
