@@ -36,7 +36,7 @@ set wrap
 set ttimeout
 
 " 功能键超时检测 50 毫秒
-set ttimeoutlen=50
+set ttimeoutlen=30
 
 " 显示光标位置
 set ruler
@@ -85,9 +85,9 @@ endif
 "----------------------------------------------------------------------
 " 语法高亮设置
 "----------------------------------------------------------------------
-if has('syntax')  
-    syntax enable 
-    syntax on 
+if has('syntax')
+    syntax enable
+    syntax on
 endif
 
 
@@ -167,6 +167,3 @@ set wildignore+=*.ppt,*.pptx,*.docx,*.xlt,*.xls,*.xlsx,*.odt,*.wps
 set wildignore+=*.msi,*.crx,*.deb,*.vfd,*.apk,*.ipa,*.bin,*.msu
 set wildignore+=*.gba,*.sfc,*.078,*.nds,*.smd,*.smc
 set wildignore+=*.linux2,*.win32,*.darwin,*.freebsd,*.linux,*.android
-
-
-
