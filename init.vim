@@ -50,7 +50,7 @@ LoadScript init/init-style.vim
 LoadScript init/init-keymaps.vim
 
 colorscheme gruvbox
-" colorscheme janah
+" colorscheme pencil
 
 set diffopt+=internal,algorithm:histogram
 

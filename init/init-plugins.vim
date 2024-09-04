@@ -273,7 +273,7 @@ if index(g:bundle_group, 'tags') >= 0
     let g:gutentags_ctags_extra_args = ['--fields=+anfiKSzl', '--extras=+q', '--c++-kinds=+pxz', '--c-kinds=+pxz', '--output-format=e-ctags']
 
     " 使用 universal-ctags 的话需要下面这行，请反注释
-    let g:gutentags_ctags_extra_args += ['--output-format=e-ctags']
+    " let g:gutentags_ctags_extra_args += ['--output-format=e-ctags']
 
     " 禁止 gutentags 自动链接 gtags 数据库
     let g:gutentags_auto_add_gtags_cscope = 0
@@ -282,7 +282,7 @@ if index(g:bundle_group, 'tags') >= 0
     let g:gutentags_plus_switch = 1
 
     " 排查问题: https://github.com/skywind3000/gutentags_plus#troubleshooting
-    " let g:gutentags_define_advanced_commands = 1
+    let g:gutentags_define_advanced_commands = 1
 endif
 
 
@@ -707,18 +707,6 @@ if index(g:bundle_group, 'YCM') >= 0
                 \ "ps1":1,
                 \ }
 endif
-
-"----------------------------------------------------------------------
-" keysound 插件
-"----------------------------------------------------------------------
-if index(g:bundle_group, 'YCM') >= 0
-    Plug 'skywind3000/vim-keysound'
-
-    let g:keysound_enable = 1
-    let g:keysound_py_version = 3
-    let g:keysound_theme = 'typewriter'
-endif
-
 
 "----------------------------------------------------------------------
 " 结束插件安装
