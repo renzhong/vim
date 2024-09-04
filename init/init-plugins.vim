@@ -16,7 +16,7 @@
 if !exists('g:bundle_group')
     let g:bundle_group = ['basic', 'tags', 'enhanced', 'filetypes', 'textobj', 'YCM']
     let g:bundle_group += ['tags', 'airline', 'nerdtree', 'ale', 'echodoc']
-    let g:bundle_group += ['leaderf', 'keysound']
+    let g:bundle_group += ['leaderf']
 endif
 
 
@@ -163,8 +163,8 @@ if index(g:bundle_group, 'basic') >= 0
             \ 'git': 'git diff --no-color --diff-algorithm=histogram --no-ext-diff -U0 -- %f',
             \}
 
-    autocmd FileType qf nnoremap <silent><buffer> p :PreviewQuickfix<cr>
-    autocmd FileType qf nnoremap <silent><buffer> P :PreviewClose<cr>
+    " autocmd FileType qf nnoremap <silent><buffer> p :PreviewQuickfix<cr>
+    " autocmd FileType qf nnoremap <silent><buffer> P :PreviewClose<cr>
 
 endif
 
@@ -282,7 +282,7 @@ if index(g:bundle_group, 'tags') >= 0
     let g:gutentags_plus_switch = 1
 
     " 排查问题: https://github.com/skywind3000/gutentags_plus#troubleshooting
-    let g:gutentags_define_advanced_commands = 1
+    " let g:gutentags_define_advanced_commands = 1
 endif
 
 
